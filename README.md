@@ -1,4 +1,5 @@
 # Juniter
+![Tests](https://github.com/kobsy/juniter/workflows/Tests/badge.svg)
 
 A simple Ruby library for parsing and working with JUnit files
 
