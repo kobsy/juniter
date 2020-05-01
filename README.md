@@ -1,8 +1,7 @@
 # Juniter
+![Tests](https://github.com/kobsy/juniter/workflows/Tests/badge.svg)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/juniter`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A simple Ruby library for parsing and working with JUnit files
 
 ## Installation
 
@@ -22,7 +21,35 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Load a JUnit XML file into Juniter using one of the following methods:
+
+```ruby
+Juniter.read(io_stream)
+# => <Juniter::File>
+
+Juniter.from_file(file_name)
+# => <Juniter::File>
+
+Juniter.parse(xml_string)
+# => <Juniter::File>
+```
+
+From there, you can traverse the JUnit hierarchy via named methods. E.g.,
+
+```ruby
+file = Juniter.parse(xml)
+failures = file.test_suites.test_suites.first.test_cases.select(&:fail?)
+puts failures.map { |failure| failure.message }.join("\n")
+```
+
+Juniter uses [ox](https://github.com/ohler55/ox) under the hood for its XML parsing. You can get at the parsed Ox elements via `juniter_file.parsed_xml`
+
+Juniter can also reassemble the objects into an XML file:
+
+```ruby
+juniter_file.to_xml
+# => "<?xml version="1.0" encoding="UTF-8"><testsuites> ..."
+```
 
 ## Development
 

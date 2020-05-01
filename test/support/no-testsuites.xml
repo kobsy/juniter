@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Amalgamation" skipped="0" failures="0" errors="1" tests="2" assertions="1" time="6.18216699999175">
+  <testcase name="test_the_app_should_have_no_warnings_from_Brakeman" lineno="6" classname="BrakemanTest" assertions="1" time="6.18216699999175">
+  </testcase>
+  <testcase name="test_: Validation: should validate version control parameters when a version control adapter is specified. " classname="ProjectTest" assertions="0" time="0.008418000004894566">
+    <error type="test_: Validation: should validate version control parameters when a version control adapter is specified. " message="ActiveRecord::StatementInvalid: PG::UndefinedColumn: ERROR:  column &quot;increment_by&quot; does not exist...">
+Failure:
+test_: Validation: should validate version control parameters when a version control adapter is specified. (ProjectTest) [/Users/kobsmc/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.0.3/lib/active_record/connection_adapters/postgresql_adapter.rb:598]:
+ActiveRecord::StatementInvalid: PG::UndefinedColumn: ERROR:  column "increment_by" does not exist
+LINE 1: ...eams_id_seq"', (SELECT COALESCE(MAX("id")+(SELECT increment_...
+                                                             ^
+:               SELECT setval('"public"."teams_id_seq"', (SELECT COALESCE(MAX("id")+(SELECT increment_by FROM "public"."teams_id_seq"), (SELECT min_value FROM "public"."teams_id_seq")) FROM "teams"), false)
+
+    
+    </error>
+  </testcase>
+</testsuite>
+

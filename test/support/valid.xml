@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="AllTheSuites" time="6.888" tests="2" failures="0" errors="1" disabled="0">
+  <testsuite name="Amalgamation" skipped="0" failures="0" errors="1" tests="2" assertions="1" time="6.18216699999175" skipped="0" failures="0" errors="1" tests="2" skipped="0" disabled="0" id="3" hostname="localhost" package="TestPackage" timestamp="2020-04-30T12:00:00.000Z05:00">
+    <properties>
+      <property name="prop" value="value" />
+    </properties>
+    <testcase name="test_the_app_should_have_no_warnings_from_Brakeman" lineno="6" classname="BrakemanTest" assertions="1" time="6.18216699999175" status="passing">
+    <system-out>No warnings found.</system-out>
+    </testcase>
+    <testcase name="test_: Validation: should validate version control parameters when a version control adapter is specified. " classname="ProjectTest" assertions="0" time="0.008418000004894566">
+      <error type="test_: Validation: should validate version control parameters when a version control adapter is specified. " message="ActiveRecord::StatementInvalid: PG::UndefinedColumn: ERROR:  column &quot;increment_by&quot; does not exist...">
+  Failure:
+  test_: Validation: should validate version control parameters when a version control adapter is specified. (ProjectTest) [/Users/kobsmc/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activerecord-5.0.3/lib/active_record/connection_adapters/postgresql_adapter.rb:598]:
+  ActiveRecord::StatementInvalid: PG::UndefinedColumn: ERROR:  column "increment_by" does not exist
+  LINE 1: ...eams_id_seq"', (SELECT COALESCE(MAX("id")+(SELECT increment_...
+                                                               ^
+  :               SELECT setval('"public"."teams_id_seq"', (SELECT COALESCE(MAX("id")+(SELECT increment_by FROM "public"."teams_id_seq"), (SELECT min_value FROM "public"."teams_id_seq")) FROM "teams"), false)
+
+      
+      </error>
+      <system-err>ActiveRecord::StatementInvalid</system-err>
+    </testcase>
+    <system-out>Exited with status(0)</system-out>
+    <system-err>No errors</system-err>
+  </testsuite>
+</testsuites>
+
