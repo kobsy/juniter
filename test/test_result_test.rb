@@ -21,6 +21,16 @@ class TestResultTest < Minitest::Test
     should "parse the description" do
       assert @error_subject.description.length.positive?
     end
+
+    should "parse embedded CDATA as the description" do
+      test_suite = Juniter::File.from_file(::File.join(__dir__, "support", "cdata.xml"))
+        .test_suites
+        .test_suites
+        .first
+      @error_subject = test_suite.test_cases.last.result
+
+      assert @error_subject.description.length.positive?
+    end
   end
 
   context ".to_xml" do
