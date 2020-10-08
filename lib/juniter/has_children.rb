@@ -53,10 +53,11 @@ module Juniter
       end
 
       nodes.each do |node|
-        if node.is_a?(String)
+        if node.is_a?(String) || node.is_a?(Ox::CData)
+          value = node.is_a?(String) ? node : node.value
           text_child = self.class.text_child
           next unless text_child
-          public_send :"#{text_child}=", [ public_send(:"#{text_child}"), node ].join
+          public_send :"#{text_child}=", [ public_send(:"#{text_child}"), value ].join
           next
         end
 
