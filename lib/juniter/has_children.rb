@@ -53,6 +53,8 @@ module Juniter
       end
 
       nodes.each do |node|
+        next if node.is_a?(Ox::Comment)
+
         if node.is_a?(String) || node.is_a?(Ox::CData)
           value = node.is_a?(String) ? node : node.value
           text_child = self.class.text_child
