@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites name="AllTheSuites" time="6.888" tests="2" failures="0" errors="1" disabled="0">
+  <!-- this is a valid XML comment -->
+  <!-- see https://www.tutorialspoint.com/xml/xml_comments.htm -->
   <testsuite name="Amalgamation" skipped="0" failures="0" errors="1" tests="2" assertions="1" time="6.18216699999175" skipped="0" failures="0" errors="1" tests="2" skipped="0" disabled="0" id="3" hostname="localhost" package="TestPackage" timestamp="2020-04-30T12:00:00.000Z05:00">
     <properties>
       <property name="prop" value="value" />
